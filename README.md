@@ -8,7 +8,7 @@
 
 1. No GitHub, escolha **Code → Download ZIP** e extraia a pasta inteira. Mantenha a pasta `data` ao lado dos arquivos da prática.
 2. Abra `slides/index.html` no navegador para acompanhar a aula offline. As setas avançam e voltam. Nas lâminas 3, 6, 9 e 16, o botão de atividade abre o atlas, o histograma, o sorteio de amostras e a reta ajustável. Para ler direto no GitHub, use a [apresentação em PDF](slides/aula.pdf).
-3. Conheça a coleta antes de abrir o código. Quando a apresentação chegar à ficha do primeiro animal, abra o bloco **A** na linguagem escolhida e prossiga em ordem.
+3. Conheça a coleta antes de abrir o código. Na lâmina 4, abra o [pratica.R](pratica.R) e execute as linhas sob `# Lâmina 4` no RStudio. A cada pausa, procure o número da lâmina projetada no script. Se escolheu Python, siga os blocos A–F do [notebook](pratica.ipynb).
 
 | Material | Como usar |
 |---|---|
