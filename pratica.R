@@ -53,10 +53,15 @@ teste_media$p.value
 # D — Proporção
 # Lâmina 13
 femeas <- sum(sexo == "female")
-femeas / length(sexo)
+n_sexo <- length(sexo)
+p_obs <- femeas / n_sexo
+p_obs
 
 # Lâmina 14
-teste_prop <- binom.test(femeas, length(sexo), p = 0.5)
+p0 <- 0.5
+z <- (p_obs - p0) / sqrt(p0 * (1 - p0) / n_sexo)
+z
+teste_prop <- prop.test(femeas, n_sexo, p = p0, correct = FALSE)
 teste_prop
 
 # E — Correlação e regressão
@@ -70,14 +75,16 @@ plot(x, y, xlab = "Nadadeira (mm)", ylab = "Massa (g)",
 cor(x, y)
 
 # Lâmina 16
-modelo <- lm(body_mass_g ~ flipper_length_mm, data = pares)
+modelo <- lm(body_mass_g ~ flipper_length_mm,
+             data = pares)
 abline(modelo)
 # Compare inclinações (g/mm).
 for (inclinacao in c(0, 20, 33, 55)) {
   previsto <- mean(y) + inclinacao * (x - mean(x))
   sq <- sum((y - previsto)^2)
-  print(c(inclinacao = inclinacao, soma_quadrados_g2 = sq))
+  print(c(inclinacao = inclinacao, SQ_g2 = sq))
 }
+coef(modelo)
 
 # Lâmina 17
 fitted(modelo)[1]
@@ -93,8 +100,14 @@ abline(h = 0, lty = 2)
 qqnorm(residuals(modelo))
 qqline(residuals(modelo))
 
-# F — Caso das requisições do slide. Registre as respostas da dupla.
-# Unidade de observação:
-# Denominador da taxa de sucesso:
-# Teste, referência e IC para latência média:
-# Gráfico, unidade da inclinação e possível fonte de dependência:
+# F — Caso resolvido: uma requisição de cada uma de oito sessões
+# Lâmina 20
+tamanho_kb <- seq(10, 80, by = 10)
+latencia_ms <- c(189, 211, 202, 229, 219, 238, 237, 251)
+sucesso <- c(TRUE, TRUE, FALSE, TRUE, NA, TRUE, TRUE, TRUE)
+sum(sucesso, na.rm = TRUE) / sum(!is.na(sucesso))
+
+# Lâmina 21
+t.test(latencia_ms, mu = 220)
+cor(tamanho_kb, latencia_ms)
+coef(lm(latencia_ms ~ tamanho_kb))

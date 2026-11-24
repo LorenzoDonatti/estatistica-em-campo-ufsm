@@ -30,9 +30,9 @@ Antes de executar cada bloco, façam uma previsão. Depois anotem o resultado co
 | A · Coleta | 1–4 | Escolham ilha e ano no atlas. Reproduzam o filtro no código e identifiquem uma variável categórica e uma quantitativa. |
 | B · Descrição | 5–8 | Comparem as massas das espécies. Expliquem por que a média e a proporção podem usar números diferentes de registros. |
 | C · Média | 9–12 | Explorem os sorteios e usem o teste t para avaliar a referência didática de 3700 g nos Adélie. Escrevam a estimativa, o IC e a decisão. |
-| D · Proporção | 13–14 | Usem o teste binomial exato para avaliar a referência de 50% de fêmeas entre Adélie com sexo registrado. Discutam o desenho da coleta. |
+| D · Proporção | 13–14 | Apliquem o teste Z bilateral a 5% à proporção de fêmeas entre os Adélie com sexo registrado. Discutam o desenho da coleta. |
 | E · Regressão | 15–19 | Interpretem a correlação, a inclinação em g/mm e o resíduo do primeiro animal. |
-| F · Aplicação em sistemas | 20–22 | Transfiram os métodos para uma base de requisições. Definam o denominador da taxa de sucesso e a unidade da inclinação da latência por tamanho da resposta. |
+| F · Aplicação em sistemas | 20–22 | Acompanhem o caso resolvido de oito sessões. Reproduzam a taxa de sucesso, o teste da latência média e a regressão da latência pelo tamanho da resposta. |
 
 A aula usa testes bilaterais com significância de 5% e intervalos de confiança de 95%. Os testes ilustram a inferência sob hipóteses de amostragem. Na discussão dos resultados, considerem como a coleta por ilha, ano e pares pode afetar a independência das observações.
 
