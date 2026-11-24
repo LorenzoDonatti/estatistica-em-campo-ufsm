@@ -6,13 +6,14 @@
 
 # A — Conhecer o arquivo
 # Lâmina 4
-arquivo <- if (file.exists("data/penguins.csv")) "data/penguins.csv" else "../data/penguins.csv"
+arquivo <- "data/penguins.csv"
+if (!file.exists(arquivo)) arquivo <- "../data/penguins.csv"
 dados <- read.csv(arquivo, na.strings = c("NA", ""))
 head(dados)
 str(dados)
 table(dados$species)
-# Reproduza o atlas para Dream em 2007. Experimente a ilha que sua dupla escolheu.
-table(subset(dados, island == "Dream" & year == 2007)$species)
+dream <- subset(dados, island == "Dream" & year == 2007)
+table(dream$species)
 colSums(is.na(dados))
 adelie <- subset(dados, species == "Adelie")
 
@@ -60,19 +61,22 @@ teste_prop
 
 # E — Correlação e regressão
 # Lâmina 15
-pares <- subset(adelie, !is.na(body_mass_g) & !is.na(flipper_length_mm))
+pares <- subset(adelie, !is.na(body_mass_g) &
+                          !is.na(flipper_length_mm))
 x <- pares$flipper_length_mm
 y <- pares$body_mass_g
-plot(x, y, xlab = "Nadadeira (mm)", ylab = "Massa (g)", pch = 16, col = "cadetblue")
+plot(x, y, xlab = "Nadadeira (mm)", ylab = "Massa (g)",
+     pch = 16, col = "cadetblue")
 cor(x, y)
 
 # Lâmina 16
 modelo <- lm(body_mass_g ~ flipper_length_mm, data = pares)
 abline(modelo)
-# Compare retas pelo centro da nuvem. Experimente outra inclinação em g/mm.
+# Compare inclinações (g/mm).
 for (inclinacao in c(0, 20, 33, 55)) {
   previsto <- mean(y) + inclinacao * (x - mean(x))
-  print(c(inclinacao = inclinacao, soma_quadrados_g2 = sum((y - previsto)^2)))
+  sq <- sum((y - previsto)^2)
+  print(c(inclinacao = inclinacao, soma_quadrados_g2 = sq))
 }
 
 # Lâmina 17

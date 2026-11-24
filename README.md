@@ -19,7 +19,7 @@
 
 Se estiver preparando o ambiente Python, abra um terminal na pasta extraída e execute `python -m pip install -r requirements.txt` no mesmo ambiente que selecionará no notebook. Se o bloco A acusar arquivo ausente, confira se `data/penguins.csv` está na pasta extraída e se o diretório de trabalho é o do material.
 
-Nos slides de prática, a faixa **Execute em R** destaca a linha principal e explica os argumentos. No HTML, o botão **Código R da lâmina** abre o trecho completo para copiar. Execute os trechos na ordem das lâminas para criar os objetos usados adiante. No PDF, acompanhe as mesmas linhas pelos comentários numerados em `pratica.R`.
+Nos slides de prática, a faixa **Execute em R** mostra todas as linhas do bloco numerado em `pratica.R`, na ordem de execução. No HTML, o botão **Código R da lâmina** abre as mesmas linhas para copiar. Execute os trechos na ordem das lâminas para criar os objetos usados adiante. No PDF, acompanhe as mesmas linhas pelos comentários numerados em `pratica.R`.
 
 ## Roteiro da dupla
 
