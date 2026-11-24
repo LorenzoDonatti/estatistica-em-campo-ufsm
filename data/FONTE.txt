@@ -1,0 +1,30 @@
+PALMER PENGUINS — dados reais, versão simplificada
+Fonte: https://allisonhorst.github.io/palmerpenguins/
+CSV: https://raw.githubusercontent.com/allisonhorst/palmerpenguins/main/inst/extdata/penguins.csv
+Obtido em: 2026-11-05. Cópia local sem alterações; a aula não requer rede.
+Licença dos dados: CC0. Autoria do pacote: Horst AM, Hill AP, Gorman KB (2020).
+DOI do pacote: 10.5281/zenodo.3960218.
+Coleta: Kristen Gorman e Palmer Station LTER.
+Artigo original: https://doi.org/10.1371/journal.pone.0090081
+
+344 registros; três espécies e três ilhas; anos 2007–2009.
+species: espécie; island: ilha; sex: sexo registrado; year: ano.
+bill_length_mm/bill_depth_mm: comprimento/profundidade do bico em mm.
+flipper_length_mm: comprimento da nadadeira em mm; body_mass_g: massa em g.
+NA representa ausência, nunca zero. Nenhuma imputação.
+Recorte principal: species == Adelie, 152 registros.
+Média: 151 massas disponíveis. Proporção: 146 sexos conhecidos (73 female).
+Regressão: 151 pares completos de massa e nadadeira.
+Não excluir por ausências em outras variáveis.
+
+Amostragem de campo, com estrutura por ilha, ano e pares: independência não
+está garantida. Testes são demonstrações condicionais ao modelo simplificado,
+não inferência validada para todos os pinguins. Referências 3700 g e 50% são
+enunciados didáticos, sem interpretação de padrões biológicos ou pesquisa
+confirmatória pré-registrada. Não escolher referências por significância.
+
+SHA-256: f204db2c753b0937caac3cb35258562c14f073e4bbc76be24b4c51ce22767a93
+
+Mapa de contexto da apresentação: contornos Natural Earth (domínio público),
+https://www.naturalearthdata.com/ . Localização da Estação Palmer:
+https://www.nsf.gov/od/opp/ail/palmer-station . O ponto identifica a estação.
