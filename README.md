@@ -14,7 +14,7 @@
 |---|---|
 | [Prática em R](pratica.R) | Abra no RStudio e escolha *Session → Set Working Directory → To Source File Location*. Selecione um bloco e pressione Ctrl+Enter (Cmd+Enter no Mac). O script usa R base. |
 | [Notebook em Python](pratica.ipynb) | Abra no Jupyter ou no VS Code, selecione o ambiente com as dependências instaladas e execute as células com Shift+Enter. |
-| [Apresentação em HTML](slides/index.html) | Para usar as interações, abra o arquivo baixado no navegador. A página do arquivo no GitHub mostra o código-fonte. |
+| [Apresentação em HTML](slides/index.html) | Para usar as interações, abra o arquivo baixado no navegador. A página do arquivo no GitHub mostra o código-fonte. O botão **Texto da lâmina** mostra o conteúdo de cada lâmina em texto, com os gráficos descritos; leitores de tela leem esse texto logo após a imagem. |
 | [Dados em CSV](data/penguins.csv) | Uma linha reúne as observações de um animal. A primeira análise deve carregar 344 linhas e oito colunas. |
 
 Se estiver preparando o ambiente Python, abra um terminal na pasta extraída e execute `python -m pip install -r requirements.txt` no mesmo ambiente que selecionará no notebook. Se o bloco A acusar arquivo ausente, confira se `data/penguins.csv` está na pasta extraída e se o diretório de trabalho é o do material.
