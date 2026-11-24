@@ -5,6 +5,7 @@
 # Apenas R base. Os gráficos aparecem no painel Plots do RStudio.
 
 # A — Conhecer o arquivo
+# Lâmina 4
 arquivo <- if (file.exists("data/penguins.csv")) "data/penguins.csv" else "../data/penguins.csv"
 dados <- read.csv(arquivo, na.strings = c("NA", ""))
 head(dados)
@@ -14,51 +15,79 @@ table(dados$species)
 table(subset(dados, island == "Dream" & year == 2007)$species)
 colSums(is.na(dados))
 adelie <- subset(dados, species == "Adelie")
-# Qual é a unidade de observação? Escolha uma variável categórica e uma quantitativa.
 
 # B — Descrever e decidir quem entra
-boxplot(body_mass_g ~ species, dados, ylab = "Massa corporal (g)", xlab = "Espécie")
+# Lâmina 5
+boxplot(body_mass_g ~ species, data = dados, ylab = "Massa (g)")
+
+# Lâmina 6
 massa <- na.omit(adelie$body_mass_g)
-sexo <- adelie$sex[adelie$sex %in% c("female", "male")]
-hist(massa, xlab = "Massa (g)", main = "Adélie", col = "cadetblue")
+hist(massa, xlab = "Massa (g)", main = "Adélie")
+median(massa)
 summary(massa)
-sd(massa)
-c(total = nrow(adelie), com_massa = length(massa), com_sexo = length(sexo))
-# Encontre um animal com massa conhecida e sexo ausente. Em qual análise ele entra?
+
+# Lâmina 7
+sexo <- na.omit(adelie$sex)
+length(massa)
+length(sexo)
 subset(adelie, !is.na(body_mass_g) & is.na(sex))
 
-# C — Massa média. Escreva H0 e H1 antes de executar.
+# Lâmina 8
+mean(massa)
+sd(massa)
+
+# C — Inferência para a média
+# Lâmina 9
 ep <- sd(massa) / sqrt(length(massa))
-c(media = mean(massa), erro_padrao = ep)
-t.test(massa, mu = 3700, alternative = "two.sided", conf.level = 0.95)
-# Conclusão com unidade, IC e decisão a 5%:
+ep
 
-# D — Proporção. Antecipe o denominador e a direção da diferença.
+# Lâmina 11
+teste_media <- t.test(massa, mu = 3700)
+teste_media
+
+# Lâmina 12
+teste_media$conf.int
+teste_media$p.value
+
+# D — Proporção
+# Lâmina 13
 femeas <- sum(sexo == "female")
-binom.test(femeas, length(sexo), p = 0.5, alternative = "two.sided", conf.level = 0.95)
-# Que hipótese de amostragem seria problemática se a coleta fosse feita em pares?
+femeas / length(sexo)
 
-# E — Relação entre duas medidas. Antecipe o sinal antes de calcular r.
+# Lâmina 14
+teste_prop <- binom.test(femeas, length(sexo), p = 0.5)
+teste_prop
+
+# E — Correlação e regressão
+# Lâmina 15
 pares <- subset(adelie, !is.na(body_mass_g) & !is.na(flipper_length_mm))
 x <- pares$flipper_length_mm
 y <- pares$body_mass_g
 plot(x, y, xlab = "Nadadeira (mm)", ylab = "Massa (g)", pch = 16, col = "cadetblue")
 cor(x, y)
+
+# Lâmina 16
+modelo <- lm(body_mass_g ~ flipper_length_mm, data = pares)
+abline(modelo)
 # Compare retas pelo centro da nuvem. Experimente outra inclinação em g/mm.
 for (inclinacao in c(0, 20, 33, 55)) {
   previsto <- mean(y) + inclinacao * (x - mean(x))
   print(c(inclinacao = inclinacao, soma_quadrados_g2 = sum((y - previsto)^2)))
 }
-modelo <- lm(body_mass_g ~ flipper_length_mm, data = pares)
-abline(modelo)
+
+# Lâmina 17
+fitted(modelo)[1]
+residuals(modelo)[1]
+
+# Lâmina 18
 summary(modelo)
 confint(modelo)
-c(observado = y[1], ajustado = fitted(modelo)[1], residuo = residuals(modelo)[1])
-plot(fitted(modelo), residuals(modelo), xlab = "Massa ajustada (g)", ylab = "Resíduo (g)")
+
+# Lâmina 19
+plot(fitted(modelo), residuals(modelo))
 abline(h = 0, lty = 2)
 qqnorm(residuals(modelo))
 qqline(residuals(modelo))
-# Escreva a unidade da inclinação e o que muda na estimativa para mais 10 mm.
 
 # F — Caso das requisições do slide. Registre as respostas da dupla.
 # Unidade de observação:
